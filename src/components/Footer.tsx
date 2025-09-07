@@ -30,7 +30,18 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img src={logo} alt="Rock Garden" className="h-16 w-auto brightness-0 invert" />
+              <img 
+                src={logo} 
+                alt="Rock Garden" 
+                className="h-16 w-auto brightness-0 invert" 
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <div className="hidden">
+                <span className="text-3xl font-serif font-bold text-primary-foreground">Rock Garden</span>
+              </div>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
               Rock Garden este locația perfectă pentru evenimente memorabile în mijlocul naturii. 

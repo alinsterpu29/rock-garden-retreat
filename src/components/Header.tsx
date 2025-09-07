@@ -20,7 +20,18 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Rock Garden" className="h-12 w-auto" />
+            <img 
+              src={logo} 
+              alt="Rock Garden" 
+              className="h-12 w-auto" 
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <div className="hidden">
+              <span className="text-2xl font-serif font-bold text-primary">Rock Garden</span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
